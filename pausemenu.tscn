@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://qy15lohxd5dn"]
+
+[ext_resource type="Script" path="res://pausemenu.gd" id="1_1n337"]
+[ext_resource type="Texture2D" uid="uid://dru0cylk3c12k" path="res://Assets_aula1/botoes/64px/Play_64.png" id="2_vaho4"]
+[ext_resource type="Texture2D" uid="uid://43b0puyk030g" path="res://Assets_aula1/botoes/64px/Restart_64.png" id="3_huots"]
+[ext_resource type="Texture2D" uid="uid://ccxfy6scsm7j" path="res://Assets_aula1/botoes/64px/Close_64.png" id="4_k0thu"]
+[ext_resource type="FontFile" uid="uid://b7bhnrebfunx0" path="res://Assets_aula1/botoes/64px/coolvetica rg it.otf" id="5_rw2gm"]
+
+[node name="pausemenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1n337")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -70.0
+offset_right = 574.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("2_vaho4")
+flat = true
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("3_huots")
+flat = true
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("4_k0thu")
+flat = true
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -153.0
+offset_right = 86.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="label" type="Label" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rw2gm")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

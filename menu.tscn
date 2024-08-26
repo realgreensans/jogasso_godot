@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7hqy7geg1wdf"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_s25sx"]
+[ext_resource type="FontFile" uid="uid://dwdg7jhr7ky3n" path="res://coolvetica compressed hv.otf" id="1_ssb7e"]
+[ext_resource type="Texture2D" uid="uid://dru0cylk3c12k" path="res://Assets_aula1/botoes/64px/Play_64.png" id="2_b4g60"]
+[ext_resource type="Texture2D" uid="uid://ccxfy6scsm7j" path="res://Assets_aula1/botoes/64px/Close_64.png" id="4_bx8jh"]
+
+[node name="menu" type="CanvasLayer"]
+script = ExtResource("1_s25sx")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.5
+offset_top = -170.0
+offset_right = 261.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="menu" type="Label" parent="BoxContainer/VBoxContainer"]
+modulate = Color(0.47451, 0.662745, 0.705882, 1)
+self_modulate = Color(0.541176, 0.937255, 1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ssb7e")
+theme_override_font_sizes/font_size = 156
+text = "JOGASSO IRMÃO"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -33.0
+offset_right = 36.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="menuplay" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_b4g60")
+flat = true
+
+[node name="quitmenu" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_bx8jh")
+flat = true
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/menuplay" to="." method="_on_menuplay_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/quitmenu" to="." method="_on_quitmenu_pressed"]

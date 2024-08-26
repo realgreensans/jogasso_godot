@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk5q05357h18a"]
+
+[ext_resource type="Script" path="res://deathscreen.gd" id="1_0kb3w"]
+[ext_resource type="FontFile" uid="uid://cpanuoyysckl7" path="res://Assets_aula1/coolvetica rg it.otf" id="2_a50oc"]
+[ext_resource type="Texture2D" uid="uid://43b0puyk030g" path="res://Assets_aula1/botoes/64px/Restart_64.png" id="3_tt1a2"]
+
+[node name="deathscreen" type="CanvasLayer"]
+script = ExtResource("1_0kb3w")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="death" type="Label" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_a50oc")
+theme_override_font_sizes/font_size = 72
+text = "DESINTELIGÊNCIA EM DEMASIA"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 74.0
+offset_right = 61.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.12)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("3_tt1a2")
+flat = true
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
